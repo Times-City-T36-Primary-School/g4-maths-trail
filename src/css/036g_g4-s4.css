@@ -1,0 +1,51 @@
+/* g4-s4.css - Stop 4, Fractions: a fraction written with a bar, the answer boxes of a fraction (one over the other)
+   and the pictures of 047g_g4-pics-s4.js (strip, sharing, wholes and parts, number line). */
+
+/* ---------- a fraction in a line of text: numerator over denominator ---------- */
+.g4s4-frac {
+  display: inline-flex; flex-direction: column; align-items: center; vertical-align: middle;
+  margin: 0 .15em; line-height: 1.05; font-size: .92em; font-weight: 700; font-variant-numeric: tabular-nums; text-align: center; white-space: nowrap;
+}
+.g4s4-frac > .g4s4-n { display: block; min-width: 1.1em; padding: 0 .2em .06em; border-bottom: .11em solid currentColor; }
+.g4s4-frac > .g4s4-d { display: block; padding: .06em .2em 0; }
+.g4s4-frac > .g4s4-sl { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); font-size: 0; }
+.g4s4-mix { white-space: nowrap; font-weight: 700; }
+.g4s4-mix > .g4s4-frac { margin-left: 0; }
+b .g4s4-frac, .mk__q .g4s4-frac, .tp-text .g4s4-frac { font-weight: 800; }
+/* lines with a fraction need a little more room between them */
+.mk__q:has(.g4s4-frac), .mk__says:has(.g4s4-frac), .mk__tip:has(.g4s4-frac), .tp-text:has(.g4s4-frac), .tp-says:has(.g4s4-frac),
+.nt-ex p:has(.g4s4-frac), .nt-sentence:has(.g4s4-frac) { line-height: 1.95; }
+.lt-o .g4s4-frac, .nt-choices .g4s4-frac { font-size: 1em; }
+
+/* ---------- answer boxes: a fraction (two boxes and a bar), a mixed number (a box, then a fraction) ---------- */
+.g4s4-fbox { display: inline-flex; flex-direction: column; align-items: stretch; vertical-align: middle; margin: .25rem .375rem; gap: .25rem; }
+.g4s4-fbox > .g4s4-fline { display: block; height: 3px; border-radius: 2px; background: var(--ink); }
+.g4s4-fbox .blank, .blank.blank--fr { min-width: 3.75rem; margin: 0; }
+.mk__line > .blank.blank--fr { margin: .125rem .25rem; }
+.g4s4-mbox { display: inline-flex; align-items: center; vertical-align: middle; gap: .125rem; }
+.g4s4-mbox > .blank { min-width: 3.75rem; }
+.mk__line:has(.g4s4-fbox), .tp-line:has(.g4s4-fbox) { line-height: 1.6; }
+/* on the test paper: real boxes (a dotted line under each number would hide the fraction bar) */
+.tp-sheet .blank.blank--fr { min-width: 3.5rem; margin: 0; padding: 0 .25rem; border: 2px solid #222222; border-radius: .25rem; align-items: center; vertical-align: middle; }
+.tp-sheet .g4s4-fbox > .g4s4-fline { background: #222222; }
+.tp-sheet .tp-line > .blank.blank--fr { margin: 0 .25rem; }
+.tp-sheet .g4s4-mbox { gap: .25rem; }
+
+/* ---------- the pictures: drawn on a light plate in both themes ---------- */
+.g4s4-pic { box-sizing: border-box; width: 100%; padding: .5rem; border-radius: var(--r-md); background: var(--plate, #FFFFFF); color: #2A2F3A; text-align: center; }
+.g4s4-pic > svg { display: block; width: 100%; height: auto; margin: 0 auto; }
+.g4s4-pic text { font-family: var(--font-display, Arial, Helvetica, sans-serif); font-weight: 700; }
+.g4s4-say { padding: .75rem .5rem; font: 700 1.5rem/2.2 var(--font-display); }
+.g4s4-say > p { margin: 0; }
+.g4s4-say > .g4s4-say__sub { font-size: 1.0625rem; line-height: 2; color: #44506A; }
+/* picture options: the picture fills the answer button */
+.mk__opt > .g4s4-pic, .tp-tick__txt > .g4s4-pic { flex: 1 1 9rem; min-width: 0; }
+.mk__opts .choice:has(.g4s4-pic) { padding-top: .375rem; padding-bottom: .375rem; }
+.pics > .g4s4-pic { flex: 1 1 14rem; }
+/* in the notes the picture fits its plate, whatever the plate's shape (no zoom, never cut off) */
+.nt-pic--tool > .g4s4-pic { zoom: 1; position: relative; align-self: stretch; flex: 1 1 auto; width: 100%; min-height: 9.5rem; padding: 0; background: transparent; }
+.nt-pic--tool > .g4s4-pic > svg { position: absolute; left: 0; top: 0; width: 100%; height: 100%; max-width: none !important; }
+.nt-pic--tool:has(> .g4s4-pic) { background: var(--plate, #FFFFFF); }
+/* a highlighted fraction: the marker stroke sits behind the whole fraction */
+.hl:has(.g4s4-frac)::before { top: .12em; bottom: .12em; height: auto; }
+.nt-choices .choice:has(.g4s4-frac), .lt-o:has(.g4s4-frac) { min-height: 3.75rem; }

@@ -1,0 +1,43 @@
+/* g4-s7.css - the pictures of Stop 7, Triangles and symmetry (047g_g4-pics-s7.js). They sit on the light art plate
+   in both themes, so the colours inside the SVG are fixed. */
+.g4s7-pic {
+  display: inline-flex; flex-direction: column; align-items: center; gap: .25rem; margin: 0 auto; padding: .375rem;
+  width: min(100%, var(--g4s7-w, 16rem)); max-width: 100%; box-sizing: border-box;
+  border-radius: var(--r-md); background: var(--plate); box-shadow: inset 0 0 0 2px var(--plate-line);
+}
+.g4s7-pic__svg { width: 100%; line-height: 0; }
+.g4s7-pic svg { display: block; width: 100%; height: auto; }
+.g4s7-t { font: 700 15px/1 Arial, Helvetica, sans-serif; fill: #10305E; }
+.g4s7-t--lab { font-size: 18px; }
+.g4s7-t--deg { font-size: 19px; }
+.g4s7-cap, .g4s7-key {
+  display: flex; flex-direction: column; align-items: center; gap: .0625rem; text-align: center;
+  font: 700 var(--fs-small)/1.15 var(--font-body); color: var(--plate-ink);
+}
+.g4s7-cap span { font-weight: 600; }
+.g4s7-key { flex-direction: row; gap: .375rem; }
+.g4s7-key__dash { width: 1.75rem; height: 0; border-top: 3px dashed #D22630; }
+.g4s7-card { display: flex; align-items: flex-end; justify-content: center; gap: .375rem; width: 100%; }
+.g4s7-card .g4s7-pic { flex: 1 1 0; min-width: 0; padding: .25rem; }
+
+/* as an answer tile: the letter sits above, the picture fills the tile */
+.mk__opts .choice:has(.g4s7-pic) { padding: .375rem .375rem .5rem; align-items: stretch; }
+.mk__opts .choice:has(.g4s7-pic) .choice__label { width: 100%; }
+.mk__opts .choice:has(.g4s7-pic) .choice__mark { top: .375rem; right: .375rem; margin-top: 0; }
+.mk__opt:has(> .g4s7-pic) { flex-direction: column; flex-wrap: nowrap; align-items: flex-start; gap: .25rem; }
+.mk__opt:has(> .g4s7-pic) > span:empty { display: none; }
+.mk__opt > .g4s7-pic { align-self: center; width: min(100%, var(--g4s7-w, 16rem)); }
+.tp-tick__txt .g4s7-pic { width: min(100%, calc(var(--g4s7-w, 16rem) * .62)); margin: 0; }
+
+/* in Notes the picture box has a height of its own: the picture fills it (no zoom) */
+.stage-pic.nt-pic--tool:has(> .g4s7-pic), .stage-pic.nt-pic--tool:has(> .g4s7-card) { container-type: size; min-height: 14rem; }
+.nt-pic--tool > .g4s7-pic, .nt-pic--tool > .g4s7-card { zoom: 1; width: calc(100cqw - 1.5rem); height: calc(100cqh - 1.5rem); max-height: 26rem; }
+.nt-pic--tool .g4s7-pic { box-shadow: none; background: none; }
+.nt-pic--tool .g4s7-pic__svg { flex: 1 1 0; min-height: 0; }
+.nt-pic--tool .g4s7-pic svg { width: 100%; height: 100%; }
+.nt-pic--tool > .g4s7-card { align-items: stretch; }
+
+/* on the paper, from a tablet up: picture answers two by two */
+@media (min-width: 600px) {
+  .tp-ticks:has(.g4s7-pic) { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .5rem 1rem; }
+}

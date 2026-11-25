@@ -1,0 +1,143 @@
+/* g4-s5.css - Stop 5 (Fractions, decimals and percentages): the fraction with a bar, the pictures (hundred grid, equivalence
+   strip, fraction bars) and the two tools (shade the hundred square, tiles in order). Every class starts with g4s5-.
+   Pictures sit on the light art plate in both themes, so inside a picture the colours are fixed. */
+
+/* ---------- a fraction: numerator over denominator with a bar (plain text stays "3/10": the slash is hidden) ---------- */
+.g4s5-frac {
+  position: relative; display: inline-flex; flex-direction: column; align-items: stretch; vertical-align: middle;
+  margin: 0 .14em; font-size: .86em; line-height: 1.08; text-align: center; white-space: nowrap; font-variant-numeric: tabular-nums;
+  font-style: normal; text-indent: 0;
+}
+.g4s5-frac__n { padding: 0 .22em .07em; }
+.g4s5-frac__d { padding: .07em .22em 0; border-top: .1em solid currentColor; }
+.g4s5-frac__s { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); opacity: 0; }
+b > .g4s5-frac, .g4s5-frac b { font-weight: inherit; }
+/* with answer boxes */
+.g4s5-frac--ask { font-size: 1em; margin: .25rem .25em; }
+.g4s5-frac--ask > .blank, .g4s5-frac--ask .g4s5-frac__n > .blank { margin: 0 0 .3125rem; }
+.g4s5-frac--ask .g4s5-frac__n { padding: 0; }
+.g4s5-frac--ask .g4s5-frac__d { padding: .3125rem .25em 0; border-top-width: 3px; }
+.g4s5-frac--ask .g4s5-frac__d > .blank { margin: 0; }
+.blank.blank--g4s5 { min-width: 4.5rem; }
+.blank.blank--g4s5f { min-width: 4rem; height: 2.75rem; }
+.tp-sheet .blank.blank--g4s5 { min-width: 4.5rem; }
+.tp-sheet .blank.blank--g4s5f { min-width: 4rem; border: 2px solid #222222; border-radius: .25rem; }
+.mk__line:has(.g4s5-frac), .tp-line:has(.g4s5-frac) { line-height: 2.5; }
+.mk__line:has(.g4s5-frac--ask), .tp-line:has(.g4s5-frac--ask) { line-height: 1.6; }
+/* in answer tiles and quick answers a fraction may be a little bigger */
+.mk__opt > span > .g4s5-frac, .tp-tick__txt .g4s5-frac, .lt-o .g4s5-frac, .lt-q .g4s5-frac { font-size: .95em; }
+.ord__tile .g4s5-frac { font-size: .9em; margin: .25rem 0; }
+.g4s5-ord .ord__tile, .g4s5-ord .ord__slot { min-height: 3.5rem; }
+
+/* ---------- pictures: the plate ---------- */
+.g4s5-pic {
+  display: flex; flex-direction: column; align-items: center; gap: .375rem; box-sizing: border-box; max-width: 100%;
+  margin: .5rem auto 0; padding: .5rem; border-radius: var(--r-md); background: var(--plate); box-shadow: inset 0 0 0 2px var(--plate-line);
+  color: var(--plate-ink);
+}
+.pics > .g4s5-pic { flex: 0 1 auto; margin: 0; }
+.pics:has(> .g4s5-pic) { justify-content: center; align-items: flex-end; }
+.g4s5-cap { font: 700 var(--fs-small)/1.3 var(--font-body); color: var(--plate-ink); text-align: center; }
+.g4s5-cap .g4s5-frac { font-size: .9em; }
+
+/* the shape of 100 squares */
+.g4s5-grid--l { width: min(100%, 15rem); }
+.g4s5-grid--m { width: min(100%, 10rem); }
+.g4s5-grid--s { width: 6.25rem; padding: .3125rem; margin: 0; }
+.g4s5-grid--wide.g4s5-grid--l { width: min(100%, 26rem); }
+.g4s5-grid--wide.g4s5-grid--m { width: min(100%, 18rem); }
+.g4s5-grid--wide.g4s5-grid--s { width: 10rem; }
+.g4s5-grid__svg { display: block; width: 100%; height: auto; }
+.g4s5-grid__c { fill: #FFFFFF; stroke: #6F86A6; stroke-width: .7; }
+.g4s5-grid__c.is-a { fill: #3F8FE0; stroke: #1D5FA8; }
+.g4s5-grid__c.is-b { fill: #F5A623; stroke: #A86A00; }
+.g4s5-grid__edge { fill: none; stroke: #10305E; stroke-width: 1.6; }
+.mk__opt .g4s5-grid--s { margin: 0 auto; }
+@media (min-width: 900px) and (min-height: 820px) { .g4s5-grid--s { width: 7.5rem; } }
+
+/* the equivalence strip */
+.g4s5-line { width: 100%; max-width: 42rem; padding: .375rem .25rem; }
+@media (max-width: 520px) { .mk__card > .g4s5-line, .mk__hint > .g4s5-line, .tp-cell > .g4s5-line { width: calc(100% + 1.25rem); max-width: none; margin-inline: -.625rem; padding-inline: 0; } }
+.g4s5-line__svg { display: block; width: 100%; height: auto; }
+.g4s5-line__t {
+  font: 700 25px/1 var(--font-display); text-anchor: middle; fill: #10305E; font-variant-numeric: tabular-nums;
+  paint-order: stroke; stroke: #FFFFFF; stroke-width: 4px; stroke-linejoin: round;
+}
+.g4s5-line__t.is-d { fill: #1A57A0; }
+.g4s5-line__t.is-p { fill: #0B6641; font-size: 22px; letter-spacing: -.02em; }
+.g4s5-line__t.is-f { font-size: 24px; }
+.g4s5-line__t.is-flag { stroke: none; }
+/* on a phone the strip is drawn small: bigger labels (about 14-15 px on a 390 px screen) */
+@media (max-width: 520px) {
+  .g4s5-line__t { font-size: 27px; }
+  .g4s5-line__t.is-f { font-size: 26px; }
+  .g4s5-line__t.is-p { font-size: 23.5px; }
+}
+.g4s5-line__t.is-flag { fill: #3A2600; }
+.g4s5-line__t.is-ask { fill: #7B4E00; }
+.g4s5-line__fb { stroke: #10305E; stroke-width: 2; stroke-linecap: round; }
+.g4s5-line__seg { fill: #EAF3FC; }
+.g4s5-line__seg.is-odd { fill: #FFFFFF; }
+.g4s5-line__fill { fill: #7DB8F0; }
+.g4s5-line__edge { fill: none; stroke: #10305E; stroke-width: 2.5; }
+.g4s5-line__tick { stroke: #10305E; stroke-width: 2; stroke-linecap: round; }
+.g4s5-line__band { fill: #FFF1CF; stroke: #F5A623; stroke-width: 2.5; }
+.g4s5-line__pin { stroke: #C17B08; stroke-width: 2.5; stroke-linecap: round; }
+.g4s5-line__dot { fill: #F5A623; stroke: #7B4E00; stroke-width: 2; }
+.g4s5-line__flag { fill: #FFF1CF; stroke: #C17B08; stroke-width: 2; }
+.g4s5-line__ask { fill: #FFF1CF; stroke: #C17B08; stroke-width: 2; stroke-dasharray: 5 4; }
+
+/* fraction bars with the same denominator */
+.g4s5-bars { align-items: stretch; gap: .5rem; width: min(100%, 26rem); padding: .625rem .75rem; }
+.g4s5-bars__row { display: grid; grid-template-columns: 2.25rem minmax(0, 1fr); align-items: center; gap: .5rem; }
+.g4s5-bars__lab { font: 700 1.25rem/1 var(--font-display); color: #10305E; text-align: center; }
+.g4s5-bars__bar { display: flex; height: 2rem; border: 2px solid #10305E; border-radius: .25rem; overflow: hidden; background: #FFFFFF; }
+.g4s5-bars__bar > i { flex: 1 1 0; border-left: 2px solid #10305E; }
+.g4s5-bars__bar > i:first-child { border-left: 0; }
+.g4s5-bars__bar > i.is-on { background: #3F8FE0; }
+.g4s5-bars__bar--1 > i.is-on { background: #35B37E; }
+.g4s5-bars__bar--2 > i.is-on { background: #F5A623; }
+
+/* ---------- the tool: shade the hundred square ---------- */
+.g4s5-shade {
+  display: grid; justify-items: center; gap: .625rem; width: 100%; box-sizing: border-box; padding: .75rem .5rem;
+  border-radius: var(--r-lg); background: var(--plate); box-shadow: inset 0 0 0 2px var(--plate-line); color: var(--plate-ink);
+}
+.g4s5-shade__grid {
+  display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); gap: 1px; width: min(100%, 19rem, 36vh); aspect-ratio: 1;
+  padding: 2px; border-radius: .25rem; background: #10305E;
+}
+.g4s5-shade__c { min-width: 0; min-height: 0; margin: 0; padding: 0; border: 0; border-radius: 0; background: #FFFFFF; cursor: pointer; }
+.g4s5-shade__c:hover:not(:disabled) { background: #DCEBFA; }
+.g4s5-shade__c.is-on { background: #3F8FE0; }
+.g4s5-shade__c.is-on:hover:not(:disabled) { background: #2F7FD4; }
+.g4s5-shade__c:disabled { cursor: default; }
+.g4s5-shade.is-shown .g4s5-shade__c.is-on { background: #F5A623; }
+.g4s5-shade__ctl { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: .375rem; }
+.g4s5-shade__b {
+  min-width: 3.25rem; height: 3rem; padding: 0 .5rem; border: 0; border-radius: var(--r-md); background: #FFFFFF; color: #10305E; cursor: pointer;
+  box-shadow: inset 0 0 0 2px #9DB2CC, 0 3px 0 #9DB2CC; font: 700 1.125rem/1 var(--font-display);
+}
+.g4s5-shade__b.is-plus { background: #E4F0FC; box-shadow: inset 0 0 0 2px #2F7FD4, 0 3px 0 #2F7FD4; }
+.g4s5-shade__b:active:not(:disabled) { transform: translateY(2px); }
+.g4s5-shade__b:disabled { opacity: .4; cursor: default; }
+.g4s5-shade__b:focus-visible, .g4s5-shade__c:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+.g4s5-shade__info { min-width: 6.25rem; margin: 0; text-align: center; font: 700 1rem/1.2 var(--font-body); color: #10305E; }
+.g4s5-shade__info b { font: 700 1.375rem/1 var(--font-display); }
+@media (max-width: 420px) {
+  .g4s5-shade__ctl { display: grid; grid-template-columns: repeat(4, auto); }
+  .g4s5-shade__info { grid-column: 1 / -1; grid-row: 1; }
+}
+
+/* ---------- Notes: the pictures fit the plate (the plate is a size container; no zoom) ---------- */
+.nt-pic--tool:has(> .g4s5-pic) { container-type: size; }
+.nt-pic--tool > .g4s5-pic { zoom: 1; margin: 0; }
+.nt-pic--tool > .g4s5-grid { width: auto; }
+.nt-pic--tool > .g4s5-grid .g4s5-grid__svg { width: auto; height: min(calc(100cqh - 1rem), 17rem); max-width: calc(100cqw - 1rem); }
+.nt-pic--tool > .pics > .g4s5-grid { width: auto; }
+.nt-pic--tool > .pics > .g4s5-grid .g4s5-grid__svg { width: auto; height: min(calc(100cqh - 3.25rem), 13rem); max-width: 100%; }
+.nt-pic--tool > .pics > .g4s5-grid { flex: 0 1 auto; min-width: 0; padding: .375rem; }
+.nt-pic--tool > .pics:has(> .g4s5-pic) { gap: .375rem; }
+.nt-pic--tool > .g4s5-line { width: 100%; max-width: 46rem; }
+.nt-pic--tool > .g4s5-line .g4s5-line__svg { max-height: calc(100cqh - .75rem); }
+.nt-pic--tool > .g4s5-bars { width: min(100%, 30rem); }

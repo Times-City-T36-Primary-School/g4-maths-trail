@@ -1,0 +1,48 @@
+/* g4-s1.css - Stop 1 (Decimals and place value): the chart, the number line with tenths, the hundred squares and the
+   two small tools (047g_g4-pics-s1.js). The drawings are SVG on their own light plate, so they look the same in both themes. */
+
+.g4s1-pic { display: flex; justify-content: center; width: 100%; min-width: 0; margin: .375rem 0; }
+.g4s1-svg { display: block; width: 100%; height: auto; }
+.g4s1-grid .g4s1-svg { width: auto; max-width: 100%; max-height: 9.5rem; }
+.pics > .g4s1-pic { flex: 1 1 14rem; }
+
+/* inside an answer option the picture is small and sits under the words */
+.mk__opt .g4s1-pic, .tp-tick__txt .g4s1-pic { max-width: 13rem; margin: .25rem 0 0; }
+
+/* Notes: the picture fills the picture box of the note, never more */
+.nt-pic--tool > .g4s1-pic { align-items: center; height: 100%; margin: 0; padding: .125rem; }
+.nt-pic--tool > .g4s1-pic .g4s1-svg { max-height: 100%; }
+
+/* ---- tool: draw counters in the chart ---- */
+.g4s1-build { width: 100%; margin: .5rem 0; }
+.g4s1-build__pic { display: flex; justify-content: center; }
+.g4s1-build__ctl { display: grid; width: 100%; margin: .375rem auto 0; }
+.g4s1-build__cell { display: flex; justify-content: center; gap: .25rem; min-width: 0; }
+.g4s1-build__fixed { align-self: center; font-size: .75rem; font-weight: 700; color: var(--ink-3); }
+.g4s1-step {
+  flex: 1 1 0; min-width: 0; max-width: 2.75rem; height: 2.75rem; padding: 0;
+  border: 2px solid var(--ctl-line); border-radius: .75rem; background: var(--ctl); color: var(--ctl-ink);
+  box-shadow: 0 3px 0 var(--ctl-edge); font: inherit; font-size: 1.375rem; font-weight: 800; line-height: 1; cursor: pointer;
+  touch-action: manipulation;
+}
+.g4s1-step:active:not(:disabled) { transform: translateY(2px); box-shadow: 0 1px 0 var(--ctl-edge); }
+.g4s1-step:disabled { background: var(--disabled); color: var(--disabled-ink); border-color: var(--disabled-edge); box-shadow: none; cursor: default; }
+.g4s1-step:focus-visible, .g4s1-near__btn:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+.g4s1-build.is-shown .g4s1-build__pic { border-radius: .875rem; box-shadow: 0 0 0 3px var(--go-line); }
+
+/* ---- tool: tap the nearer whole number ---- */
+.g4s1-near { width: 100%; margin: .5rem 0; }
+.g4s1-near__pic { display: flex; justify-content: center; }
+.g4s1-near__row { display: flex; justify-content: space-between; gap: 1rem; max-width: 476px; margin: .5rem auto 0; }
+.g4s1-near__btn {
+  min-width: 5rem; height: 3rem; padding: 0 1rem;
+  border: 2px solid var(--ctl-line); border-radius: .875rem; background: var(--ctl); color: var(--ctl-ink);
+  box-shadow: 0 3px 0 var(--ctl-edge); font: inherit; font-size: 1.375rem; font-weight: 800; cursor: pointer; touch-action: manipulation;
+}
+.g4s1-near__btn.is-on { border-color: var(--pick); background: var(--pick-soft); box-shadow: 0 3px 0 var(--pick); }
+.g4s1-near__btn:disabled { cursor: default; }
+.g4s1-near__btn:disabled:not(.is-on) { background: var(--disabled); color: var(--disabled-ink); box-shadow: none; }
+
+@media (max-width: 380px) {
+  .g4s1-step { height: 2.5rem; font-size: 1.25rem; }
+}

@@ -1,0 +1,4 @@
+tools/blocklist.local.js
+dist/
+shots/
+review/

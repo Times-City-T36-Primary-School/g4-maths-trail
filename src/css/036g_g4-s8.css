@@ -1,0 +1,51 @@
+/* g4-s8.css - Stop 8 (3D shapes and nets): the pictures of 047g_g4-pics-s8.js. The drawings are SVG with fixed colours
+   on their own light paper, so they look the same in both themes. */
+.g4s8-pic { display: flex; flex-direction: column; align-items: center; gap: .25rem; margin: 0 auto; min-width: 0; width: 100%; max-width: 20rem; }
+.g4s8-pic__art { display: flex; justify-content: center; width: 100%; line-height: 0; }
+.g4s8-svg { display: block; width: auto; height: auto; max-width: 100%; max-height: 15rem; border-radius: .5rem; box-shadow: 0 0 0 1px var(--plate-line); }
+.g4s8-pic--solid { max-width: 13rem; }
+.g4s8-pic--view { max-width: 12rem; }
+.g4s8-pic__cap { font: 700 1rem/1.2 var(--font-display); color: var(--ink); text-align: center; }
+
+/* small pictures side by side with their captions (a claim about shapes A, B and C) */
+.g4s8-row { display: flex; align-items: flex-end; justify-content: center; gap: .5rem; width: 100%; }
+.g4s8-row > .g4s8-pic { flex: 1 1 0; margin: 0; max-width: 11rem; }
+
+/* pictures as answers: a tile of the 2 × 2 grid (about 110 px wide on a phone) */
+.mk__opts .mk__opt:has(.g4s8-pic) { flex-direction: column; align-items: stretch; gap: .25rem; width: 100%; }
+.mk__opts .choice:has(.g4s8-pic) { padding: .5rem .5rem .625rem; }
+.mk__opts .choice:has(.g4s8-pic) .choice__mark { top: .5rem; right: .5rem; margin-top: 0; }
+.mk__opts .mk__opt:has(.g4s8-pic) > span:empty { display: none; }
+.mk__opts .mk__opt:has(.g4s8-pic) > .mk__let { position: relative; z-index: 1; margin: -.125rem 0 0 -.125rem; }
+.mk__opts .g4s8-pic { max-width: 10.5rem; margin-top: -1.875rem; padding: 0; }
+.mk__opts .g4s8-svg { max-height: 8.5rem; }
+/* the question's own picture, and the pictures of hints and worked answers */
+.mk__card > .g4s8-pic { max-width: 20rem; }
+.mk__card > .g4s8-pic--solid { max-width: 12rem; }
+.mk__card > .g4s8-row { max-width: 26rem; margin: 0 auto; }
+.mk__hint .g4s8-pic, .mk__worked .g4s8-pic { max-width: 11rem; }
+.mk__hint .pics, .mk__worked .pics { justify-content: center; }
+.mk__hint .pics > .g4s8-pic, .mk__worked .pics > .g4s8-pic { flex: 0 1 9rem; margin: 0; }
+
+/* the tap tool: the net on a grid, an empty square can be tapped */
+.g4s8-tap { width: 100%; max-width: 22rem; margin: 0 auto; line-height: 0; touch-action: manipulation; }
+.g4s8-tap .g4s8-svg { width: 100%; max-height: none; }
+.g4s8-tapcell { cursor: pointer; }
+.g4s8-tapcell:hover { fill: #DCEBFC; fill-opacity: .8; }
+.g4s8-tapcell:focus-visible { outline: none; stroke: #1F5CA0; stroke-width: 3; }
+
+/* the Mini test on paper: a picture per tick row */
+.tp-tick__txt .g4s8-pic { max-width: 10rem; margin: 0; align-items: flex-start; }
+.tp-tick__txt .g4s8-pic__art { justify-content: flex-start; }
+.tp-tick__txt .g4s8-svg { max-height: 8rem; }
+.tp-cell > .g4s8-pic { margin: .5rem auto; }
+.tp-cell > .g4s8-row { margin: .5rem auto; max-width: 26rem; }
+.tp-cell > .g4s8-tap { margin: .5rem auto; }
+
+/* Notes: the picture fills its plate, no zoom */
+.nt-pic--tool > .g4s8-pic, .nt-pic--tool > .g4s8-row { zoom: 1; }
+.nt-pic--tool > .g4s8-pic { max-width: min(100%, 22rem); }
+.nt-pic--tool > .g4s8-row { max-width: 34rem; }
+.nt-pic--tool > .g4s8-row > .g4s8-pic { max-width: 14rem; }
+.nt-pic--tool .g4s8-svg { max-height: 16rem; }
+@media (max-width: 699px) { .nt-pic--tool .g4s8-svg { max-height: 8.5rem; } .nt-pic--tool > .g4s8-row .g4s8-svg { max-height: 6.75rem; } .nt-pic--tool .g4s8-pic__cap { font-size: .875rem; } }

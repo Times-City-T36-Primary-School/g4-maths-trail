@@ -1,0 +1,57 @@
+/* g4-s6.css - the pictures of Stop 6 (src/js/047g_g4-pics-s6.js): triangular dot patterns, the arrays of a number,
+   the sequence strip with a far term, two triangles in a square. Flat drawings on the light art plate (light in both
+   themes), so the colours inside the drawings are fixed. Every class starts with g4s6-. */
+.g4s6-row {
+  display: flex; align-items: flex-end; justify-content: center; flex-wrap: wrap; gap: .625rem .875rem;
+  width: 100%; padding: .75rem .625rem; border-radius: var(--r-lg); background: var(--plate); box-shadow: inset 0 0 0 2px var(--plate-line);
+}
+.g4s6-row--arr { align-items: center; gap: .75rem 1.125rem; }
+.g4s6-fig { display: inline-flex; flex-direction: column; align-items: center; gap: .3125rem; margin: 0; min-width: 0; max-width: 100%; }
+.g4s6-svg { display: block; height: auto; max-width: 100%; }
+.g4s6-cap { font: 700 var(--fs-small)/1.15 var(--font-body); color: var(--plate-ink); text-align: center; white-space: nowrap; }
+.g4s6-cap b { color: #9A4F05; }
+.g4s6-d { fill: #2F7FD4; stroke: #1D62AE; stroke-width: 1.5; }
+.g4s6-tri .g4s6-d.is-last { fill: #F5A623; stroke: #A86A00; }           /* the new bottom row of each pattern */
+.g4s6-tri { padding: .625rem .625rem .375rem; }
+.g4s6-th { fill: #3D5A85; font: 700 18px/1 var(--font-body); }
+.g4s6-tn { fill: #10305E; font: 700 19px/1 var(--font-display); text-anchor: middle; }
+.g4s6-tgap { fill: #3D5A85; font: 700 24px/1 var(--font-display); text-anchor: middle; }
+.g4s6-tn.is-far { fill: #7B4E00; }
+.g4s6-tn.is-dots { fill: #9A4F05; }
+.g4s6-qt { fill: #7B4E00; font: 600 24px/1 var(--font-display); text-anchor: middle; }
+.g4s6-arr .g4s6-d { fill: #E5404A; stroke: #A31A22; }
+.g4s6-arr .g4s6-d.is-one { fill: #8FA3BC; stroke: #5B6F8A; }             /* the single row 1 × n: every number has it */
+.g4s6-d.is-two { fill: #F5A623; stroke: #A86A00; }
+.g4s6-cut { fill: none; stroke: #10305E; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 7 5; }
+.g4s6-sqf { fill: none; stroke: #8FA3BC; stroke-width: 2; }
+.g4s6-two { color: #9A4F05; }
+.g4s6-one { color: #1D62AE; }
+.g4s6-q {
+  display: grid; place-items: center; width: 2.875rem; height: 2.875rem; border-radius: var(--r-sm);
+  border: 2px dashed #C17B08; background: #FFF1CF; color: #7B4E00; font: 600 1.625rem/1 var(--font-display);
+}
+/* the strip: boxes in a row, a jump arc over each gap, the place of each term under its box */
+.g4s6-strip { max-width: 34rem; margin-inline: auto; }
+.g4s6-arc { fill: none; stroke: #C76A0E; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+.g4s6-lab { fill: #9A4F05; font: 700 20px/1 var(--font-display); text-anchor: middle; }
+.g4s6-box { fill: #FFFFFF; stroke: #10305E; stroke-width: 2.5; }
+.g4s6-box.is-far { fill: #FFF1CF; stroke: #C17B08; stroke-dasharray: 6 5; }
+.g4s6-box.is-far.is-on { stroke-dasharray: none; }
+.g4s6-num { fill: #10305E; font: 600 23px/1 var(--font-display); text-anchor: middle; }
+.g4s6-num.is-far { fill: #7B4E00; }
+.g4s6-ord { fill: #3D5A85; font: 700 18px/1 var(--font-body); text-anchor: middle; }
+.g4s6-ord.is-far { fill: #7B4E00; font-size: 19px; }
+.g4s6-dots { fill: #3D5A85; font: 700 30px/1 var(--font-display); text-anchor: middle; }
+.g4s6-long { fill: none; stroke: #1D62AE; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 7 5; }
+.g4s6-long.is-tip { stroke-dasharray: none; }
+.g4s6-longb { fill: #E4F0FC; stroke: #1D62AE; stroke-width: 2; }
+.g4s6-longt { fill: #164C8A; font: 700 19px/1 var(--font-display); text-anchor: middle; }
+/* in Notes the tool pictures are zoomed (65-notes.css): these rows scale with the width themselves */
+.nt-pic--tool > .g4s6-row { zoom: 1.2; width: auto; max-width: 100%; box-shadow: none; }
+@media (min-width: 700px) { .nt-pic--tool > .g4s6-row { zoom: 1.6; } }
+@media (min-width: 1200px) and (min-height: 760px) { .nt-pic--tool > .g4s6-row { zoom: 2; } }
+/* on a phone test paper the cell beside the marks is narrow: let the dot patterns and the strip use the marks column too,
+   so their labels stay readable (as 036g_g4-s9.css does for its pictures) */
+@media (max-width: 520px) {
+  .tp-cell > .g4s6-tri, .tp-cell > .g4s6-strip { align-self: flex-start; width: calc(100% + 3.25rem); max-width: none; margin: 0 -3.25rem 0 0; }
+}

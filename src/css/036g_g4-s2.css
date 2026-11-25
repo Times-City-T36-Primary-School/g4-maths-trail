@@ -1,0 +1,27 @@
+/* g4-s2.css - the Stop 2 pictures (047g_g4-pics-s2.js): the decimal place value slider and the flow diagram.
+   Both sit on the light art plate in both themes, so the colours inside the drawings are fixed. */
+.g4s2-slide, .g4s2-flow {
+  box-sizing: border-box; width: 100%; max-width: calc(var(--g4s2-w, 420) * .0625rem * 1.15); margin: .5rem auto; padding: .5rem;
+  border-radius: var(--r-lg); background: var(--plate); box-shadow: inset 0 0 0 2px var(--plate-line); color: var(--plate-ink);
+}
+.g4s2-svg { width: 100%; }
+.g4s2-svg svg { display: block; width: 100%; height: auto; }
+.g4s2-svg text { font-family: var(--font-display); }
+.g4s2-cap { margin: .375rem 0 0; text-align: center; font: 700 var(--fs-small)/1.3 var(--font-body); color: var(--plate-ink-2); }
+.g4s2-cap b { display: block; font: 800 var(--fs-lead)/1.25 var(--font-display); color: var(--plate-ink); }
+/* in a tick option the picture is small */
+.mk__opt .g4s2-slide, .mk__opt .g4s2-flow { margin: .25rem 0 0; }
+/* Notes: the pictures scale with the width themselves, so no zoom (as .nl and .hops in 65-notes.css) */
+.nt-pic--tool > .g4s2-slide, .nt-pic--tool > .g4s2-flow { zoom: 1; margin: 0 auto; max-width: min(100%, calc(var(--g4s2-w, 420) * .0625rem * 1.6)); }
+/* the test paper prints in black and white: keep the plate quiet there */
+.tp-sheet .g4s2-slide, .tp-sheet .g4s2-flow { box-shadow: inset 0 0 0 1px #C9D3DF; background: #FFFFFF; }
+/* Notes on a phone: the picture box takes the height of the picture (it must never be cut off); the page scrolls */
+@media (max-width: 639.98px), (max-aspect-ratio: 124/100) {
+  .nt-pic--tool:has(> .g4s2-slide), .nt-pic--tool:has(> .g4s2-flow) { flex: 0 0 auto; padding: .5rem; }
+}
+/* the test paper on a phone: the answer column is narrow, so the picture also uses the room under the marks column */
+@media (max-width: 520px) {
+  .tp-sheet .tp-cell > .g4s2-flow, .tp-sheet .tp-cell > .g4s2-slide { align-self: flex-start; width: calc(100% + 3.25rem); max-width: none; margin: .25rem -3.25rem .25rem 0; padding: .375rem; }
+}
+/* a balance line keeps the box with its operation (and the left side together) on a narrow phone */
+.g4s2-nw { white-space: nowrap; }
